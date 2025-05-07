@@ -2,7 +2,7 @@
 # Copyright 2017-2019 NXP
 # Released under the MIT license (see COPYING.MIT for the terms)
 
-DESCRIPTION = "Capetti Gateway Relase Image"
+DESCRIPTION = "Capetti GW25LX Debug Image"
 LICENSE = "MIT"
 
 inherit core-image
@@ -12,16 +12,24 @@ IMAGE_FEATURES += " \
 	debug-tweaks \
 	ssh-server-dropbear \
 	hwcodecs \
+	tools-debug \
 	"
 
 PKG_DEBUG = "\
+	devmem2 \
+	dosfstools \
+	e2fsprogs \
 	ethtool \
 	i2c-tools \
 	iproute2 \
+	firmwared \
 	minicom \
 	parted \
+	e2fsprogs-resize2fs \
 	serialtools \
 	usbutils \
+	ldd \
+	fsl-rc-local \
 	imx6ull-lwb5plus \
 	imx6ull-brcm \
 	engicam-mtd-script \
@@ -37,6 +45,10 @@ IMAGE_INSTALL += " \
 	packagegroup-core-full-cmdline \
 	packagegroup-tools-bluetooth \
 	sqlite3 \
+	mosquitto \
 	mosquitto-clients \
+	ppp \
+	hostapd \
+	dnsmasq \
 	${PKG_DEBUG} \
 "
