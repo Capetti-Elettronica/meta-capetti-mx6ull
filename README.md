@@ -1,5 +1,5 @@
-meta-engicam-nxp
-================
+META-CAPETTI-MX6ULL
+===================
 
 
 Based on NXP Yocto Scarthgap
