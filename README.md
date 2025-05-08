@@ -1,26 +1,39 @@
+
 META-CAPETTI-MX6ULL
 ===================
 
-
 Based on NXP Yocto Scarthgap
-----------------------------
 
-To use the i.MX Mmanifest repository repo tool must be installed first.
 
-```bash
-mkdir ~/bin
-curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-chmod a+x ~/bin/repo
-PATH=${PATH}:~/bin
+Install the `repo` utility:
+---------------------------
+
+To use this manifest repo, the `repo` tool must be installed first.
+
+```
+$: mkdir ~/bin
+$: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo  > ~/bin/repo
+$: chmod a+x ~/bin/repo
+$: PATH=${PATH}:~/bin
 ```
 
-Then download the yocto project BSP base on scarthgap
+
+Download the Yocto Project BSP
+------------------------------
 
 ```bash
-mkdir imx-yocto-bsp
-cd imx-yocto-bsp
+mkdir gw25lx-scarthgap
+cd gw25lx-scarthgap
 repo init -u https://github.com/nxp-imx/imx-manifest -b imx-linux-scarthgap -m imx-6.6.52-2.2.0.xml 
 repo sync
+```
+
+Clone capetti layer
+-------------------
+
+```
+cd sources
+git clone https://github.com/Capetti-Elettronica/meta-capetti-mx6ull -b scarthgap
 ```
 
 SOMs supported
@@ -85,97 +98,29 @@ Images available
 First build
 -----------
 
-For imx8mp-icore:
-
-
 ```
-DISTRO=fsl-imx-xwayland MACHINE=imx8mp-icore source imx-setup-release.sh -b build
-bitbake-layers add-layer ../sources/meta-engicam-nxp
-bitbake engicam-evaluation-image-mx8
-```
-
-For imx91-microgea:
-
-```
-DISTRO=fsl-imx-xwayland MACHINE=imx91-microgea source imx-setup-release.sh -b build
-bitbake-layers add-layer ../sources/meta-engicam-nxp
-bitbake engicam-evaluation-image-mx91
+DISTRO=fsl-imx-wayland MACHINE=imx6ull-microgea source imx-setup-release.sh -b build
+bitbake-layers add-layer ../sources/meta-capetti-mx6ull
+bitbake capetti-gateway-image-debug (or release)
 ```
 
 
+Populate SDK
+------------
 
-# NOTE for imx91-microgea
+If you also need to modify the gateway binaries you need to populate the SDK. Using Rust you do not need a full cross-compilation toolchain,
+however Rust needs to use a sysroot to ensure that everything compiles properly. To do so you need to populate the SDK (non the extended version)
 
-Due to an Hardware issue on imx91-microgea it's impossible set the boot from sdcard.
+```
+bitbake capetti-gateway-image-debug -c populate_sdk
+```
 
-There are 2 alterrnatives:
+Modifying an Existing Recipe
+-------
 
-## Using uuu with starterkit 2.0
+In case you need to customize some recipes before creating a custom repo for them, use this approach:
 
-Enter into the image deploy folder and follow the next instructions
-
-1 .download and build the last uuu version_
-
-````
-git clone --recursive https://github.com/nxp-imx/mfgtools.git
-cd mfgtools
-cmake .
-make -j12
-cp ./uuu/uuu ..
-cd ..
-````
-
-2. Close these Jumpers on the board:
-
-- nSD_BOOT
-- B_M
-- J_USB1
-
-3. Launch the uuu command. Es:
-
-
-````bash
-sudo ./uuu -b emmc_all imx-boot-imx91-microgea-sd.bin-flash_singleboot core-image-weston-imx91-microgea.rootfs.wic.zst
-
-sudo ./uuu -b emmc_all imx-boot-imx91-microgea-sd.bin-flash_singleboot core-image-minimal-imx91-microgea.rootfs.wic.zst
-
-sudo ./uuu -b emmc_all imx-boot-imx91-microgea-sd.bin-flash_singleboot engicam-evaluation-image-mx91-imx91-microgea.rootfs.wic.zst
-
-sudo ./uuu -b emmc imx-boot-imx91-microgea-sd.bin-flash_singleboot
-````
-
-
-## Start from eMMC card and set the u-boot variable for sdcard booting
-
-
-__For microdev 2.0__
-
-````bash
-setenv mmcautodetect
-saveenv
-````
-
-Reboot the board.
-
-````bash
-setenv mmcdev 2
-setenv fdtfile imx91-microgea-microdev2.dtb
-setenv mmcroot '/dev/mmcblk2p2 rootwait rw'
-saveenv
-````
-
-__For microdev 3.0__
-
-````bash
-setenv mmcautodetect
-saveenv
-````
-
-Reboot the board.
-
-````bash
-setenv mmcdev 2
-setenv fdtfile imx91-microgea-microdev3.dtb
-setenv mmcroot '/dev/mmcblk2p2 rootwait rw'
-saveenv
-````
+```
+devtool modify linux-engicam
+devtool modify u-boot-engicam
+```
