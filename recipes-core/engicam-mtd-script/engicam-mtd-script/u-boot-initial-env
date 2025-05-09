@@ -1,0 +1,15 @@
+baudrate=115200
+boot_fit=no
+bootargs=console=ttymxc0,115200 ubi.mtd=nandrootfs root=ubi0:rootfs rootfstype=ubifs cma=16M  mtdparts=gpmi-nand:64m(nandboot),32m(nandkernel),16m(nanddtb),-(nandrootfs) 
+bootcmd=nand read ${loadaddr} 0x4000000 0x2000000;nand read ${fdt_addr} 0x6000000 0x100000;if test ${tee} = yes; then nand read ${tee_addr} 0x6000000 0x400000;bootm ${tee_addr} - ${fdt_addr};else if test ${boot_fit} = yes; then bootm;else bootz ${loadaddr} - ${fdt_addr};fi;fi
+bootdelay=3
+console=ttymxc0
+ethprime=eth0
+fdt_addr=0x83000000
+fdt_high=0xffffffff
+loadaddr=0x80800000
+mtdids=
+mtdparts=
+splashimage=0x8c000000
+tee_addr=0x84000000
+

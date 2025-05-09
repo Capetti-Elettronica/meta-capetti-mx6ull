@@ -16,6 +16,8 @@ SRC_URI = " file://prboot.sh \
 			file://tftp_fs.sh \
 			file://fw_savenv.sh \
 			file://copyright \
+			file://fw_env.config \
+			file://u-boot-initial-env \
 			"
 
 do_install () {
@@ -29,4 +31,6 @@ do_install () {
 	install -m 0755 ${WORKDIR}/tftp_dtb.sh ${D}${bindir}/tftp_dtb.sh
 	install -m 0755 ${WORKDIR}/tftp_fs.sh ${D}${bindir}/tftp_fs.sh
 	install -m 0755 ${WORKDIR}/fw_savenv.sh ${D}${bindir}/fw_savenv.sh
+	install -m 0755 ${WORKDIR}/fw_savenv.sh ${D}${sysconfdir}/fw_env.config
+	install -m 0755 ${WORKDIR}/fw_savenv.sh ${D}${sysconfdir}/u-boot-initial-env
 }
