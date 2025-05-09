@@ -22,6 +22,7 @@ SRC_URI = " file://prboot.sh \
 
 do_install () {
 	install -d ${D}${bindir}
+	install -d ${D}${sysconfdir}
 	install -m 0755 ${WORKDIR}/prboot.sh ${D}${bindir}/prboot.sh
 	install -m 0755 ${WORKDIR}/prfs.sh ${D}${bindir}/prfs.sh
 	install -m 0755 ${WORKDIR}/prkernel.sh ${D}${bindir}/prkernel.sh
@@ -31,6 +32,6 @@ do_install () {
 	install -m 0755 ${WORKDIR}/tftp_dtb.sh ${D}${bindir}/tftp_dtb.sh
 	install -m 0755 ${WORKDIR}/tftp_fs.sh ${D}${bindir}/tftp_fs.sh
 	install -m 0755 ${WORKDIR}/fw_savenv.sh ${D}${bindir}/fw_savenv.sh
-	install -m 0755 ${WORKDIR}/fw_savenv.sh ${D}${sysconfdir}/fw_env.config
-	install -m 0755 ${WORKDIR}/fw_savenv.sh ${D}${sysconfdir}/u-boot-initial-env
+	install -m 0755 ${WORKDIR}/fw_env.config ${D}${sysconfdir}/fw_env.config
+	install -m 0755 ${WORKDIR}/u-boot-initial-env ${D}${sysconfdir}/u-boot-initial-env
 }
