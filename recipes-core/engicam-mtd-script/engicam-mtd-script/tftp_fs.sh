@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FILETOW=rootfs.tar.bz2
+FILETOW=rootfs.tar.zst
 
 print_help() {
    echo "Usage: "
@@ -40,7 +40,7 @@ if env | grep -q ^serverip=; then
 		fi
 		mkdir /rootfs
 		mount -t ubifs ubi0:rootfs /rootfs
-		tar xvf $FILETOW -C /rootfs
+		tar --zstd -xvf $FILETOW -C /rootfs
 		sync
 	else
 		echo "Unable to download $FILETOW"
