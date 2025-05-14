@@ -8,7 +8,8 @@ IMAGE_FEATURES += " \
 	debug-tweaks \
 	ssh-server-dropbear \
 	tools-debug \
-	"
+"
+
 
 PKG_DEBUG = "\
 	devmem2 \
@@ -38,13 +39,12 @@ PKG_DEBUG = "\
 
 IMAGE_INSTALL += " \
 	brcm-patchram-plus \
-	packagegroup-core-full-cmdline \
-	packagegroup-tools-bluetooth \
-	sqlite3 \
-	mosquitto \
-	mosquitto-clients \
-	ppp \
-	hostapd \
 	dnsmasq \
+	hostapd \
+	mosquitto-clients \
+	packagegroup-core-full-cmdline \
+	ppp-config \
+	sqlite3 \
+	systemd-network-config \
 	${PKG_DEBUG} \
 "
