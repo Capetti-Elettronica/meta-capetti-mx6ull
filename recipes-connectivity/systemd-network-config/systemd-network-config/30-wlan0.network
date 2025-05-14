@@ -1,0 +1,17 @@
+[Match]
+Name=wlan0
+
+[Network]
+Address=192.168.1.1/24
+Metric=300
+
+# Use this ip even if no client is connected
+ConfigureWithoutCarrier=yes
+
+# Eclude interface from dns
+MulticastDNS=no              
+LLMNR=no
+DNSSEC=no
+
+# Disable IPv6 from routing
+IPv6AcceptRA=no              
