@@ -1,0 +1,27 @@
+# This is pppd script for China Mobile, used SIMCOM SIM72X0 Module
+# Usage: root>pppd call umtsdial
+# Interface should be used is the interface which connects physics interface of SIM72X0.
+/dev/ttyUSB3
+115200
+crtscts
+modem
+noauth
+debug
+nodetach
+#hide-password
+usepeerdns
+noipdefault
+noipv6
+defaultroute
+#user "tre"
+0.0.0.0:0.0.0.0
+#ipcp-accept-local
+#ipcp-accept-remote
+#lcp-echo-failure 12
+#lcp-echo-interval 3
+#noccp
+#novj
+#novjccomp
+persist
+connect '/usr/sbin/chat -s -v -f /etc/ppp/lte-connect-chat'
+#disconnect '/bin/chat -v -f /etc/chatscripts/lte'
