@@ -104,6 +104,16 @@ bitbake-layers add-layer ../sources/meta-capetti-mx6ull
 bitbake capetti-gateway-image-debug (or release)
 ```
 
+Flash on SD-Card
+----------------
+
+Once ready, you could flash your image onto an sd-card. 
+
+```
+cd tmp/deploy/images/imx6ull-microgea
+zstdcat -cd capetti-gateway-image-debug-imx6ull-microgea.wic.zst | sudo dd of=/dev/sdb bs=10M status=progress && sync
+```
+
 
 Populate SDK
 ------------
@@ -124,3 +134,15 @@ In case you need to customize some recipes before creating a custom repo for the
 devtool modify linux-engicam
 devtool modify u-boot-engicam
 ```
+
+Create SYSROOT
+--------------
+
+In case you prefer to have an external/custom sysroot or if yocto sdk has some problem creating it, follow these passages
+
+```
+mkdir "your sysroot dir"
+sudo debootstrap --arch=armhf --foreign bookworm "/path/to/your/sysroot/folder" http://deb.debian.org/debian/
+```
+
+Be sure to have in your project the path to the sysroot properly set.
