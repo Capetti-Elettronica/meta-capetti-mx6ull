@@ -1,0 +1,33 @@
+-- these values are in default mode, users can modify them and eventually
+-- restore default parameter through future reset procedures
+INSERT INTO "settings" (name, data_type, default_value, value)
+VALUES
+    ('Label', 'String', '', 'Sample Label'),
+    ('Network Key', 'String', '1984DADE', '1984DADE'),
+    ('RS-232 Enabled', 'Bool', 'false', 'false'),
+    ('RS-232 Protocol', 'String', 'Modbus RTU Slave', 'None'),
+    ('RS-232 Address', 'Int', '17', '17'),
+    ('RS-232 Baudrate', 'Int', '9600', '9600'),
+    ('RS-232 Parity', 'String', 'Even', 'Even'),
+    ('RS-485 Enabled', 'Bool', 'false', 'false'),
+    ('RS-485 Protocol', 'String', 'Modbus RTU Slave', 'None'),
+    ('RS-485 Address', 'Int', '17', '17'),
+    ('RS-485 Baudrate', 'Int', '9600', '9600'),
+    ('RS-485 Parity', 'String', 'Even', 'Even'),
+    ('LAN Enabled', 'Bool', 'false', 'false'),
+    ('LAN Protocol', 'String', 'Modbus TCP Slave', 'None'),
+    ('LAN Port', 'Int', '502', '502'), 
+    ('Cloud Enabled', 'Bool', 'true', 'true'),
+    ('Cloud Protocol', 'String', 'Winecap', 'Winecap'),
+    ('Cloud Transport', 'String', 'https', 'https'),
+    ('Cloud Host', 'String', 'www.winecap.it', 'www.winecap.it'),
+    ('MQTT Topic', 'String', '', ''),
+    ('MQTT Username', 'String', '', ''),
+    ('MQTT Password', 'String', '', ''),
+    ('MQTT Port', 'Int', '1883', '1883'),
+    ('FTP Enabled', 'Bool', 'false', 'false'),
+    ('FTP Server', 'String', '', ''),
+    ('FTP User', 'String', '', ''),
+    ('FTP Password', 'String', '', ''),
+    ('FTP Port', 'Int', '22', '22'),
+    ('FTP Active Mode', 'Bool', 'true', 'true');

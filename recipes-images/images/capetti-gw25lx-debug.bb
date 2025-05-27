@@ -41,6 +41,7 @@ IMAGE_INSTALL += " \
 	brcm-patchram-plus \
 	dnsmasq \
 	hostapd \
+	migrations \
 	mosquitto-clients \
 	packagegroup-core-full-cmdline \
 	ppp-config \
