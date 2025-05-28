@@ -38,8 +38,10 @@ PKG_DEBUG = "\
 "
 
 IMAGE_INSTALL += " \
+	applications \
 	brcm-patchram-plus \
-	cpufreq \
+	config \
+	cpufrequtils \
 	dnsmasq \
 	hostapd \
 	migrations \
