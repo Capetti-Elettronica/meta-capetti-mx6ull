@@ -12,8 +12,10 @@ IMAGE_FEATURES += " \
 
 IMAGE_INSTALL += " \
 	brcm-patchram-plus \
+	cpufreq \
 	dnsmasq \
 	hostapd \
+	migrations \
 	mosquitto-clients \
 	packagegroup-core-full-cmdline \
 	ppp-config \
