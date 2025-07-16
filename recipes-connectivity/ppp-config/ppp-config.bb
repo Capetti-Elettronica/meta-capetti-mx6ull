@@ -13,11 +13,12 @@ SRC_URI = "file://lte-connect-chat \
 RDEPENDS:${PN} += "ppp"
 
 do_install () {
+    install -d ${D}${sysconfdir}/chatscripts
     install -d ${D}${sysconfdir}/ppp
     install -d ${D}${sysconfdir}/ppp/peers
-    install -m 644 ${WORKDIR}/lte-connect-chat ${D}${sysconfdir}/ppp/lte-connect-chat
+    install -m 644 ${WORKDIR}/lte-connect-chat ${D}${sysconfdir}/chatscripts/lte-connect-chat
     install -m 644 ${WORKDIR}/ltedial ${D}${sysconfdir}/ppp/peers/ltedial
 }
 
-CONFFILES:${PN} += "${sysconfdir}/ppp/lte-connect-chat \
+CONFFILES:${PN} += "${sysconfdir}/chatscripts/lte-connect-chat \
                     ${sysconfdir}/ppp/peers/ltedial"

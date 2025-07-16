@@ -23,5 +23,5 @@ user ""
 #novj
 #novjccomp
 persist
-connect '/usr/sbin/chat -s -v -f /etc/ppp/lte-connect-chat'
+connect '/usr/sbin/chat -s -v -f /etc/chatscripts/lte-connect-chat'
 #disconnect '/bin/chat -v -f /etc/chatscripts/lte'
