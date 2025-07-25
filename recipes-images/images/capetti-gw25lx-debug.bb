@@ -38,11 +38,11 @@ PKG_DEBUG = "\
 "
 
 IMAGE_INSTALL += " \
-	applications \
+	bin \
 	brcm-patchram-plus \
-	config \
 	cpufrequtils \
 	dnsmasq \
+	etc \
 	hostapd \
 	migrations \
 	mosquitto-clients \
