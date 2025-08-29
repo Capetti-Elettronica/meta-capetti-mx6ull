@@ -15,8 +15,8 @@ CREATE INDEX IF NOT EXISTS idx_channel_sensor_id ON channel (sensor_owner_id);
 CREATE INDEX IF NOT EXISTS idx_channel_ch_number ON channel (ch_number);
 
 -- measure indexes
-CREATE INDEX IF NOT EXISTS idx_measure_evt_timestamp_sensor_id ON measure_evt (timestamp, sensor_owner_id);
-CREATE INDEX IF NOT EXISTS idx_measure_val_timestamp_channel_id_sensor_id ON measure_val (timestamp, channel_id, sensor_owner_id);
+CREATE INDEX IF NOT EXISTS idx_measure_evt_timestamp_sensor_id ON measure_evt (sensor_owner_id, timestamp DESC);
+CREATE INDEX IF NOT EXISTS idx_measure_val_timestamp_channel_id_sensor_id ON measure_val (sensor_owner_id, channel_id, timestamp DESC);
 
 -- cloud indexes
 CREATE INDEX IF NOT EXISTS idx_cloud_connection_start ON cloud (connection_start);
