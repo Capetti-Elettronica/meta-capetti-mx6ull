@@ -2,9 +2,10 @@
 -- values are modifiable only in production or from a master user
 INSERT INTO "gateway" (name, data_type, default_value, value)
 VALUES
-    ('Part Number', 'String', 'Linux Gateway', 'LNX GW'),
+    ('Part Number', 'String', 'GW25LX', 'GW25LX'),
     ('Serial Number', 'String', '123456', '123456'),
-    ('Mac Address', 'String', '1984DADE', '1984DADE'),
+    ('Mac Address', 'String', '1984DADE', '0001129C'),
+    ('License', 'String', '', '2e6f43f7837005470f1cd5d55a0fccbc'),
     ('Version', 'String', '1.0.0', '1.0.0'),
     ('Release Candidate', 'Bool', 'false', 'true'),
     ('Release Candidate Version', 'String', '', 'R1'),
