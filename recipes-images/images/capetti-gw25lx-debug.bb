@@ -49,5 +49,6 @@ IMAGE_INSTALL += " \
 	ppp-config \
 	sqlite3 \
 	systemd-network-config \
+	ffmpeg \
 	${PKG_DEBUG} \
 "
