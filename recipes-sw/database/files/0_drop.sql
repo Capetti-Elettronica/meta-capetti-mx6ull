@@ -8,5 +8,7 @@ DROP TABLE IF EXISTS "sensor_diag";
 DROP TABLE IF EXISTS "channel";
 DROP TABLE IF EXISTS "measure_evt";
 DROP TABLE IF EXISTS "measure_val";
+DROP TABLE IF EXISTS "pending_evt";
+DROP TABLE IF EXISTS "webcam";
 DROP TABLE IF EXISTS "cloud";
 DROP TABLE IF EXISTS "settings";

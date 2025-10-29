@@ -16,6 +16,8 @@ VALUES
     ('RS-232 Port', 'String', 'ttymxc4', 'ttymxc4'),
     ('RS-485 Port', 'String', 'ttymxc1', 'ttymxc1'),
     ('Bluetooth Port', 'String', 'ttymxc7', 'ttymxc7'),
+    ('Lan Interface', 'String', 'eth0', 'eth0'),
+    ('Wi-Fi Interface', 'String', 'wlan0', 'wlan0'),
     ('Modem AT Cmd Port', 'String', 'ttyUSB3', 'ttyUSB3'),
     ('LoRa USB Port', 'String', 'ttyUSB10', 'ttyUSB10'),    -- this must be set from a script
     ('LuPo USB Port', 'String', 'ttyUSB11', 'ttyUSB11'),    -- this must be set from a script

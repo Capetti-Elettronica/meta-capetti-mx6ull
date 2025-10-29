@@ -183,6 +183,19 @@ CREATE TABLE IF NOT EXISTS "pending_evt" (
     FOREIGN KEY ("evt_id") REFERENCES "measure_evt" ("evt_id") ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS "webcam" (
+    "webcam_id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "enrolled_at" INTEGER DEFAULT (strftime('%s','now')),
+    "updated_at" INTEGER,
+    "stream_name" TEXT NOT NULL,
+    "username" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
+    "ip_address" TEXT UNIQUE NOT NULL,
+    "interval" INTEGER NOT NULL,
+    "history_count" INTEGER NOT NULL,
+    "counter" INTEGER NOT NULL
+);
+
 -- cloud connections schema
 CREATE TABLE IF NOT EXISTS "cloud" (
     "cloud_id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
