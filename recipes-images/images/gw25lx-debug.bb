@@ -44,7 +44,7 @@ IMAGE_INSTALL += " \
 	etc \
 	hostapd \
 	migrations \
-	mosquitto-clients \
+	nginx \
 	packagegroup-core-full-cmdline \
 	ppp-config \
 	sqlite3 \
