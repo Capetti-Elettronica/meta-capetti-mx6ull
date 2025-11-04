@@ -48,6 +48,7 @@ IMAGE_INSTALL += " \
 	packagegroup-core-full-cmdline \
 	ppp-config \
 	sqlite3 \
+	stm32flash \
 	systemd-network-config \
 	ffmpeg \
 	${PKG_DEBUG} \
