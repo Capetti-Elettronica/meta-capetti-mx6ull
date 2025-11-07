@@ -1,11 +1,13 @@
 [Unit]
 Description=Gateway Service
-After=network.target
+After=multi-user.target network.target dev-ttymxc3.device systemd-udev-settle.service serial-getty@ttymxc3.service
+Requires=dev-ttymxc3.device systemd-udev-settle.service
 
 [Service]
+ExecStartPre=/usr/bin/wait_sdma.sh
 ExecStart=/usr/bin/gateway
 Restart=always
-RestartSec=3
+RestartSec=1
 User=root
 Environment=RUST_LOG=info
 
