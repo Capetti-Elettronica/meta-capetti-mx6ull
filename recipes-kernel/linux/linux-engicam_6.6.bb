@@ -16,12 +16,12 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
 SRC_URI = "${KERNEL_SRC}"
-KERNEL_SRC ?= "git://github.com/engicam-stable/linux-engicam-imx-6.git;protocol=https;branch=${SRCBRANCH}"
+KERNEL_SRC ?= "git://github.com/Capetti-Elettronica/linux-engicam-imx-6.git;protocol=https;branch=${SRCBRANCH}"
 KBRANCH = "${SRCBRANCH}"
 
 SRCBRANCH = "eng-6.6.y"
 LOCALVERSION = "eng-6.6"
-SRCREV = "5131fa71633694cb07c324595e44a24f1baf5aa8"
+SRCREV = "1dc67e21a9a1de63bf8da9699b6764ad662b25bb"
 
 DEPENDS += "lzop-native"
 
