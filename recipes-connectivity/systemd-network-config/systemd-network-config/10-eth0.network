@@ -1,0 +1,18 @@
+[Match]
+Name=eth0
+
+[Network]
+DHCP=v4
+
+[DHCP]
+RouteMetric=100
+
+# for static ip use this configuration
+# [Network] 
+# Address=xxx.xxx.xxx.xxx/24 different from gateway and in the same subnet
+# DHCP=no
+# DNS=8.8.8.8
+#
+# [Route]
+# Gateway=xxx.xxx.xxx.xxx different from ip address and in the same subnet
+# Metric=100

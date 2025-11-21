@@ -3,4 +3,6 @@ Name=ppp0
 
 [Network]
 Gateway=10.64.64.64
+
+[PPP]
 Metric=200

@@ -3,7 +3,6 @@ Name=wlan0
 
 [Network]
 Address=192.168.1.1/24
-Metric=300
 
 # Use this ip even if no client is connected
 ConfigureWithoutCarrier=yes
