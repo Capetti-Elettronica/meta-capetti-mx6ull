@@ -1,5 +1,5 @@
 [Unit]
-Description=Gateway Service
+Description=Wait Sdma Service
 After=multi-user.target network.target dev-ttymxc3.device systemd-udev-settle.service serial-getty@ttymxc3.service
 Requires=dev-ttymxc3.device systemd-udev-settle.service
 

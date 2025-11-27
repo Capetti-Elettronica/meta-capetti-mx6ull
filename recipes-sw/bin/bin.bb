@@ -2,10 +2,12 @@ LICENSE = "CLOSED"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI = " file://dummy \
+SRC_URI = " file://check_gw_sts.sh \
+            file://wait_sdma.sh \
             "
 
 do_install () {
-    install -d ${D}/var/www/gw25lx
-    install -m 0644 ${WORKDIR}/dummy ${D}/var/www/gw25lx/
+    install -d ${D}/usr/bin
+    install -m 0744 ${WORKDIR}/check_gw_sts.sh ${D}/usr/bin/
+    install -m 0744 ${WORKDIR}/wait_sdma.sh ${D}/usr/bin/
 }

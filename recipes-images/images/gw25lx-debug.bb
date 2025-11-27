@@ -38,6 +38,7 @@ PKG_DEBUG = "\
 "
 
 IMAGE_INSTALL += " \
+	bin \
 	brcm-patchram-plus \
 	cpufrequtils \
 	dnsmasq \
