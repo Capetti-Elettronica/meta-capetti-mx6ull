@@ -8,8 +8,8 @@ SRC_URI = " file://check_gw_sts.service \
 
 inherit systemd
 
-SYSTEMD_SERVICE_${PN} = "check_gw_sts.service wait_sdma.service"
-SYSTEMD_AUTO_ENABLE_${PN} = "enable"
+SYSTEMD_SERVICE:${PN} = "check_gw_sts.service wait_sdma.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 do_install () {
     install -d ${D}/etc/systemd/system
