@@ -1,0 +1,8 @@
+[Match]
+Name=wwan0
+
+[Network]
+DHCP=v4
+
+[DHCP]
+RouteMetric=200

@@ -44,6 +44,7 @@ IMAGE_INSTALL += " \
 	dnsmasq \
 	etc \
 	hostapd \
+	libqmi \
 	migrations \
 	nginx \
 	packagegroup-core-full-cmdline \
